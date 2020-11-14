@@ -1,0 +1,14 @@
+<p>Je suis {{ name }}</p>
+
+<div [hidden]="hd" [style.backgroundColor]="myColor">
+
+    Je suis une DIV
+</div>
+
+<button (click)="traitement()" class="btn btn-danger">Cliquez-ici</button>
+
+<input [(ngModel)]="myColor" type="text" class="form-control">
+
+
+<button (click)="sendMsg()" class="btn btn-warning">Send Msg to Parent</button>
+
