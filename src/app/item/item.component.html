@@ -1,3 +1,4 @@
-<li class="list-group-item">
-    <img src="../../assets/{{onePerson.avatar}}"> {{onePerson.prenom}}  {{ onePerson.nom}}
+<li appCustomDir class="list-group-item">
+    <img src="../../assets/{{onePerson.avatar | noImage}}"> 
+    {{onePerson.prenom | titlecase}}  {{ onePerson.nom | uppercase}}
 </li>

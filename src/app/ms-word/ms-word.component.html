@@ -1,0 +1,22 @@
+<div [ngStyle]="{
+    'backgroundColor': bgColor,
+    'color' : myColor,
+    'fontSize' : size,
+    'fontFamily' : myFont
+}">
+    Simultaur de Miscrosoft Word
+</div>
+
+Background Color : 
+<input [(ngModel)]="bgColor" type="text" class="form-control">
+
+Color : 
+<input [(ngModel)]="myColor" type="text" class="form-control">
+
+Font Size: 
+<input #sz (change)="modifierSize(sz.value)" type="number" class="form-control">
+
+Font Family
+<select [(ngModel)]="myFont"  class="form-control">
+    <option *ngFor="let f of fonts" [value]="f"> {{ f }}</option>
+</select>

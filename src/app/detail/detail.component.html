@@ -5,14 +5,15 @@
                 <img src="images/rotating_card_thumb2.png">
             </div>
             <div class="user">
-                <img class="img-circle" src="images/rotating_card_profile3.png">
+                <img class="img-circle" src="../../assets/{{personSelected.avatar}}">
             </div>
             <div class="content">
                 <div class="main">
-                    <!-- <h3 class="name">{{ prenom }} {{ nom }}</h3>
-                    <p class="profession">{{ age }} ans</p>
-                    <p class="text-center">{{ profession }} </p> -->
-                </div>
+                    <h3 class="name">{{ personSelected.prenom }} {{ personSelected.nom }}</h3>
+                    <p class="profession">{{ personSelected.age }} ans</p>
+                    <p class="text-center">{{ personSelected.profession }} </p> 
+                </div> 
+                
                 <div class="footer">
                     <i class="fa fa-mail-forward"></i> Auto Rotation
                 </div>
