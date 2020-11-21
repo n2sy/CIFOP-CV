@@ -18,6 +18,9 @@ import { ManagerServersComponent } from './manager-servers/manager-servers.compo
 import { ShortPipe } from './short.pipe';
 import { FilterPipe } from './filter.pipe';
 import { ListPersonneService } from './list-personne.service';
+import { RecruterComponent } from './recruter/recruter.component';
+import { HomeComponent } from './home/home.component';
+import { GTEC_ROUTING } from './app.routing';
 
 @NgModule({
   declarations: [
@@ -35,11 +38,14 @@ import { ListPersonneService } from './list-personne.service';
     ServersComponent,
     ManagerServersComponent,
     ShortPipe,
-    FilterPipe
+    FilterPipe,
+    RecruterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    GTEC_ROUTING
   ],
   providers: [ListPersonneService],
   bootstrap: [AppComponent]
