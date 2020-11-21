@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-10">
+            <input type="text" class="form-control" [(ngModel)]="selectedStatus">
+            <ul class="list-group">
+                <li class="list-group-item"
+                *ngFor="let serv of listServers | filter:selectedStatus"
+                [ngClass]="setClass(serv)">
+                <strong> {{serv.name | short:15 }} | {{serv.type }} | {{serv.d  | date:'fullDate' | uppercase}} </strong>
+                <span class="badge badge-secondary">{{serv.status}}</span>
+                </li>
+            </ul>
+            <br><br>
+            <button class="btn btn-primary" (click)="addServer()">Add New Server</button>
+        </div>
+    </div>
+</div>

@@ -1,26 +1,33 @@
 import { Component, OnInit } from '@angular/core';
+import { ListPersonneService } from '../list-personne.service';
 import { Personne } from '../model/personne';
 
 @Component({
   selector: 'app-cv',
   templateUrl: './cv.component.html',
-  styleUrls: ['./cv.component.css']
+  styleUrls: ['./cv.component.css'],
+  providers : []
 })
 export class CvComponent implements OnInit {
   selectedPersonne : Personne;
-  listePersonne : Personne[] = [
-    new Personne(1, "nidhal", "jelassi", 35, "Enseignant"),
-    new Personne(2, "bart", "simpson", 12, "Etudiant", "bart.jpg"),
-    new Personne(3, "homer", "simpson", 80, "Ingénieur", "homer.jpg")
-  ];
-  constructor() { }
+  listPersonne : Personne[];
+  constructor(private persServ : ListPersonneService) { }
 
   ngOnInit() {
+    this.listPersonne = this.persServ.getAllPersons()
   }
 
   RecupPerson(p) {
     this.selectedPersonne = p;
 
   }
+
+  addPerson() {
+    this.persServ.addPerson();
+    console.log(this.persServ.getAllPersons());
+    
+  }
+
+
 
 }

@@ -1,9 +1,11 @@
 <div class="row">
     <div class="col-md-4">
-        <app-liste (sendPers)="RecupPerson($event)" [listePerson]="listePersonne" ></app-liste>
+        <app-liste (sendPers)="RecupPerson($event)" ></app-liste>
     </div>
     <div class="col-md-8" *ngIf="selectedPersonne">
         <app-detail [personSelected]="selectedPersonne" ></app-detail>
     </div>
+
+    <button class="btn btn-danger" (click)="addPerson()">Add New Person from CV</button>
     
 </div>
