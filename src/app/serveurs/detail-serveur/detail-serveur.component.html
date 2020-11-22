@@ -1,0 +1,10 @@
+<h3> {{ selectedServeur.name }} </h3>
+<strong> Etat du serveur : {{ selectedServeur.status }} </strong>
+
+<div *ngIf="!affiche">
+    Impossible d'éditer ce serveur !!!
+</div>
+<br>
+<button class="btn btn-primary" *ngIf="affiche">
+    Editer
+</button>

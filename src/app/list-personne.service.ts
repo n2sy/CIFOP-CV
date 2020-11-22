@@ -25,4 +25,9 @@ export class ListPersonneService {
     return this.listePersonne.find(( p => p.id == id));
   }
 
+  deletePerson(pers) {
+    let i = this.listePersonne.indexOf(pers);
+    this.listePersonne.splice(i, 1);
+  }
+
 }

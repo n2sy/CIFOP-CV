@@ -26,6 +26,10 @@ import { AddComponent } from './add/add.component';
 import { UpdateComponent } from './update/update.component';
 import { InfosComponent } from './infos/infos.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ServeursComponent } from './serveurs/serveurs.component';
+import { DetailServeurComponent } from './serveurs/detail-serveur/detail-serveur.component';
+import { EditServeurComponent } from './serveurs/edit-serveur/edit-serveur.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +54,11 @@ import { NotFoundComponent } from './not-found/not-found.component';
     AddComponent,
     UpdateComponent,
     InfosComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ServeursComponent,
+    DetailServeurComponent,
+    EditServeurComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,25 @@
+<form #f="ngForm" (submit)="showForm(f.value)" >
+    <label for="name">Login</label>
+    <input ngModel email required type="text" class="form-control" name="login" id="name">
+
+    <div class="alert alert-danger" 
+    *ngIf="f.invalid && f.touched"
+    >Veuilez saisir une adresse mail valide</div>
+
+    <label for="pwd">Password</label>
+    <input ngModel type="text" class="form-control" name="password" id="pwd">
+    
+    <label for="section">Section</label>
+    <select [ngModel]="sectionDefault" name="section" id="section" class="form-control">
+        <option value="gl">Génie Logiciel</option>
+        <option value="dm">Développement mobile</option>
+        <option value="dsen">Data Science</option>
+    </select>
+    <label for="resume">Resume</label>
+    <input [(ngModel)]="resumeDefault" type="text" class="form-control" name="resume" id="resume">
+    <div>
+        {{resumeDefault}}
+    </div>
+    
+    <button class="btn btn-primary" type='submit'>Submit</button>
+</form>
