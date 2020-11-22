@@ -21,4 +21,8 @@ export class ListPersonneService {
     this.listePersonne.push(new Personne(1, "New", "Person", 35, "Enseignant"))
   }
 
+  getPersonById(id) {
+    return this.listePersonne.find(( p => p.id == id));
+  }
+
 }
