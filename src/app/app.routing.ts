@@ -11,6 +11,8 @@ import { ServeursComponent } from './serveurs/serveurs.component';
 import { DetailServeurComponent } from './serveurs/detail-serveur/detail-serveur.component';
 import { EditServeurComponent } from './serveurs/edit-serveur/edit-serveur.component';
 import { LoginComponent } from './login/login.component';
+import { LoginGuard } from './login.guard';
+import { LogoutGuard } from './logout.guard';
 
 
 
@@ -18,13 +20,13 @@ const myRoutes : Routes = [
     {path :'', component : HomeComponent },
     {path : 'cv', children : [
         {path: '', component: CvComponent},
-        {path : 'add', component: AddComponent },
+        {path : 'add', component: AddComponent, canActivate : [LoginGuard] },
         {path : ':id', component: InfosComponent },
-        {path : 'edit/:id', component: UpdateComponent },
+        {path : 'edit/:id', component: UpdateComponent, canActivate : [LoginGuard] },
     ] },
     {path : 'extra/servers', component: ManagerServersComponent },
     {path : 'word', component: MsWordComponent },
-    {path : 'login', component: LoginComponent },
+    {path : 'login', component: LoginComponent, canActivate : [LogoutGuard] },
     {path : 'serveurs', component: ServeursComponent, children: [
         {path: ':id', component: DetailServeurComponent},
         {path: ':id/edit', component: EditServeurComponent},

@@ -20,19 +20,43 @@ export class InfosComponent implements OnInit {
     
     this.activatedRoute.paramMap.subscribe(
       (p : ParamMap) => {
-        this.selectedPerson = this.persServ.getPersonById(p.get('id'));
+        this.persServ.getPersonByIdAPI(p.get('id')).subscribe(
+          (reponse) => {
+            this.selectedPerson = reponse
+          },
+          (error) => {
+            console.log("Error with getPersonById");  
+          }
+        )
 
+      },
+      (error) => {
+        console.log("Error with ParamMap");
+        
       }
     )
   }
 
   deleteSelectedPerson() {
     if(confirm('Voulez-vous vraiment supprimer cette personne ?')) {
-      this.persServ.deletePerson(this.selectedPerson);
-      this.router.navigateByUrl("/cv");
+      //this.persServ.deletePerson(this.selectedPerson);
+      //this.router.navigateByUrl("/cv");
+      this.persServ.deletePersonAPI(this.selectedPerson.id).subscribe(
+        (reponse) => {
+          this.router.navigateByUrl("/cv");
+        },
+        (error) => {
+          console.log("Error with deletePersonAPI");
+          
+        }
+      )
 
     }
 
+  }
+
+  goToUpdate() {
+    this.router.navigate(['cv', 'edit', this.selectedPerson.id])
   }
 
 }

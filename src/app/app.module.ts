@@ -30,6 +30,9 @@ import { ServeursComponent } from './serveurs/serveurs.component';
 import { DetailServeurComponent } from './serveurs/detail-serveur/detail-serveur.component';
 import { EditServeurComponent } from './serveurs/edit-serveur/edit-serveur.component';
 import { LoginComponent } from './login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpTestComponent } from './http-test/http-test.component';
+import { loginInterceptorProvider } from './login.interceptor';
 
 @NgModule({
   declarations: [
@@ -58,14 +61,16 @@ import { LoginComponent } from './login/login.component';
     ServeursComponent,
     DetailServeurComponent,
     EditServeurComponent,
-    LoginComponent
+    LoginComponent,
+    HttpTestComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    GTEC_ROUTING
+    GTEC_ROUTING,
+    HttpClientModule
   ],
-  providers: [ListPersonneService],
+  providers: [loginInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

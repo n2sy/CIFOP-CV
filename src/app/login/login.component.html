@@ -1,15 +1,17 @@
-<form #f="ngForm" (submit)="showForm(f.value)" >
+<form #f="ngForm" (submit)="submitCredentials(f.value)" >
 
-    <input #op="ngModel" ngModel required minlength="6" pattern="nidhal jelassi" type="text" class="form-control" name="options">
+    <div *ngIf="notAffiche" class="alert alert-danger">Invalid Credentials !</div>
+
+    <!-- <input #op="ngModel" ngModel required minlength="6" pattern="nidhal jelassi" type="text" class="form-control" name="options">
     <div class="aert alert-danger" *ngIf="op.invalid && op.touched">
         <p *ngIf="op.errors.required">Ce champ est obligatoire</p>
         <p *ngIf="op.errors.minlength">Le nbre de caractères minimal est 6</p>
         <p *ngIf="op.errors.pattern">Le pattern est nidhal jelassi</p>
     </div>
-    
+     -->
     
     <label for="name">Login</label>
-    <input #in="ngModel" ngModel email required type="text" class="form-control" name="login" id="name">
+    <input #in="ngModel" ngModel email required type="text" class="form-control" name="email" id="name">
 
     <div class="alert alert-danger" 
     *ngIf="in.invalid && in.touched"

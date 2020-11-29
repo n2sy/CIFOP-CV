@@ -3,7 +3,10 @@
           <a class="nav-link" [routerLink]="['']" routerLinkActive="active" [routerLinkActiveOptions]="{exact : true}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['cv']" routerLinkActive="active">CV</a>
+          <a class="nav-link" [routerLink]="['cv']" routerLinkActive="active" [routerLinkActiveOptions]="{exact : true}">CV</a>
+        </li>
+        <li class="nav-item" *ngIf="authServ.isLogged()">
+          <a class="nav-link" [routerLink]="['cv/add']" routerLinkActive="active">Add CV</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['extra', 'servers']" routerLinkActive="active">Servers</a>
@@ -14,8 +17,12 @@
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['serveurs']" routerLinkActive="active" >Serveurs</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!authServ.isLogged()">
           <a class="nav-link" [routerLink]="['login']" routerLinkActive="active" >Login</a>
         </li>
+        <li class="nav-item" *ngIf="authServ.isLogged()" (click)="seDeconnecter()">
+          <a class="nav-link">Logout</a>
+        </li>
+
       </ul>
     

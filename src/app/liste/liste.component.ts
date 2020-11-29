@@ -14,7 +14,15 @@ export class ListeComponent implements OnInit {
   constructor(private persServ : ListPersonneService) { }
 
   ngOnInit() {
-    this.listePerson = this.persServ.getAllPersons();
+    this.persServ.getAllPersonsAPI().subscribe(
+      (reponse) => {
+        this.listePerson = reponse;
+      },
+      (error) => {
+        console.log("Error with getAllPerson()");
+        
+      }
+    )
   }
 
   sendPersToCv(pers) {

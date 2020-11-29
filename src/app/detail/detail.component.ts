@@ -1,5 +1,6 @@
 import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ListRecrueService } from '../list-recrue.service';
 import { Personne } from '../model/personne';
 
@@ -10,13 +11,18 @@ import { Personne } from '../model/personne';
 })
 export class DetailComponent implements OnInit {
   @Input() personSelected : Personne;
-  constructor(private recrueServ : ListRecrueService) { }
+  constructor(private recrueServ : ListRecrueService,
+    private router : Router) { }
 
   ngOnInit() {
   }
 
   RecruterPers() {
     this.recrueServ.addRecrue(this.personSelected);
+  }
+
+  goToDetails() {
+    this.router.navigate(['cv', this.personSelected.id])
   }
 
 }

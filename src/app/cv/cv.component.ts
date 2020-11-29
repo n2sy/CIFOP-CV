@@ -14,7 +14,16 @@ export class CvComponent implements OnInit {
   constructor(private persServ : ListPersonneService) { }
 
   ngOnInit() {
-    this.listPersonne = this.persServ.getAllPersons()
+    //this.listPersonne = this.persServ.getAllPersons()
+    this.persServ.getAllPersonsAPI().subscribe(
+      (reponse) => {
+        this.listPersonne = reponse;
+      },
+      (error) => {
+        console.log("Error with getAllPerson()");
+        
+      }
+    )
   }
 
   RecupPerson(p) {
@@ -22,11 +31,6 @@ export class CvComponent implements OnInit {
 
   }
 
-  addPerson() {
-    this.persServ.addPerson();
-    console.log(this.persServ.getAllPersons());
-    
-  }
 
 
 
