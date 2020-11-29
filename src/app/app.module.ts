@@ -33,6 +33,10 @@ import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpTestComponent } from './http-test/http-test.component';
 import { loginInterceptorProvider } from './login.interceptor';
+import { SearchComponent } from './search/search.component';
+import { RhManagerComponent } from './rh-manager/rh-manager.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+
 
 @NgModule({
   declarations: [
@@ -62,13 +66,16 @@ import { loginInterceptorProvider } from './login.interceptor';
     DetailServeurComponent,
     EditServeurComponent,
     LoginComponent,
-    HttpTestComponent
+    HttpTestComponent,
+    SearchComponent,
+    RhManagerComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     GTEC_ROUTING,
-    HttpClientModule
+    HttpClientModule,
+    DragDropModule
   ],
   providers: [loginInterceptorProvider],
   bootstrap: [AppComponent]

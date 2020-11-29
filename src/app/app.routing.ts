@@ -13,6 +13,7 @@ import { EditServeurComponent } from './serveurs/edit-serveur/edit-serveur.compo
 import { LoginComponent } from './login/login.component';
 import { LoginGuard } from './login.guard';
 import { LogoutGuard } from './logout.guard';
+import { RhManagerComponent } from './rh-manager/rh-manager.component';
 
 
 
@@ -26,6 +27,7 @@ const myRoutes : Routes = [
     ] },
     {path : 'extra/servers', component: ManagerServersComponent },
     {path : 'word', component: MsWordComponent },
+    {path : 'rh', component: RhManagerComponent },
     {path : 'login', component: LoginComponent, canActivate : [LogoutGuard] },
     {path : 'serveurs', component: ServeursComponent, children: [
         {path: ':id', component: DetailServeurComponent},

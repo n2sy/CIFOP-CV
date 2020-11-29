@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Candidats</h2>
+            <div
+            cdkDropList
+            #candList="cdkDropList"
+            [cdkDropListData]="candidatList"
+            [cdkDropListConnectedTo]="[recList, refList]"
+            class="example-list"
+            (cdkDropListDropped)="drop($event)">
+            <div class="alert alert-primary" *ngFor="let c of candidatList" cdkDrag>
+                <img src="../../assets/{{c.avatar | noImage}}"> 
+                {{c.prenom | titlecase}}  {{ c.nom }}
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+            <h2>Recrues</h2>
+            <div
+            cdkDropList
+            #recList="cdkDropList"
+            [cdkDropListData]="recrueList"
+            [cdkDropListConnectedTo]="[candList, refList]"
+            class="example-list"
+            (cdkDropListDropped)="drop($event)">
+            <div class="alert alert-success" *ngFor="let re of recrueList" cdkDrag>
+                <img src="../../assets/{{re.avatar | noImage}}"> 
+                {{re.prenom | titlecase}}  {{ re.nom }}
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+            <h2>Refusés</h2>
+            <div
+            cdkDropList
+            #refList="cdkDropList"
+            [cdkDropListData]="refuseList"
+            [cdkDropListConnectedTo]="[candList, recList]"
+            class="example-list"
+            (cdkDropListDropped)="drop($event)">
+            <div class="alert alert-danger" *ngFor="let c of refuseList" cdkDrag>
+                <img src="../../assets/{{c.avatar | noImage}}"> 
+                {{c.prenom | titlecase}}  {{ c.nom }}
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

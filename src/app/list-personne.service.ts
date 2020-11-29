@@ -75,4 +75,10 @@ export class ListPersonneService {
 
   }
 
+  getPersonsByName(subName) : Observable<Personne[]> {
+    let ch = `{"where":{"nom":{"like":"%${subName}%"}}}`;
+    let params = new HttpParams().set('filter', ch);
+    return this.http.get<Personne[]>(this.link, {params})
+  }
+
 }

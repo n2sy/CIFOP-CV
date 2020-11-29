@@ -15,6 +15,9 @@
           <a class="nav-link" [routerLink]="['word']" routerLinkActive="active" >MS-Word</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" [routerLink]="['rh']" routerLinkActive="active" >RH Manager</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" [routerLink]="['serveurs']" routerLinkActive="active" >Serveurs</a>
         </li>
         <li class="nav-item" *ngIf="!authServ.isLogged()">
