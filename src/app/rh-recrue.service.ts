@@ -18,4 +18,16 @@ export class RhRecrueService {
   getPersonsByStatus(stat) {
     return this.listePersonne.filter((p) => p.status == stat)
   }
+
+  updatePersonByStatus(updateP) {
+    let uP = this.listePersonne.find((p) => p.id == updateP.id);
+    let i = this.listePersonne.indexOf(uP);
+    this.listePersonne[i] = updateP;
+    console.log(this.listePersonne);
+    
+  }
+
+  addPerson(newP) {
+    this.listePersonne.push(newP);
+  }
 }

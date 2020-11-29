@@ -13,6 +13,9 @@ export class RhManagerComponent implements OnInit {
   recrueList : Personne[];
   refuseList : Personne[];
 
+  affiche : boolean = false;
+  displayValue : string = "none";
+
   constructor(private recrueServ : RhRecrueService) { }
 
   ngOnInit() {
@@ -32,6 +35,26 @@ export class RhManagerComponent implements OnInit {
                         event.previousIndex,
                         event.currentIndex);
     }
+    let selectedPerson = event.item.data;
+    selectedPerson["status"] = event.container.element.nativeElement.classList[0];
+    this.recrueServ.updatePersonByStatus(selectedPerson);
+  }
+
+  showModal() {
+    this.affiche = true;
+    this.displayValue = "block"
+  }
+
+  hideModal() {
+    this.affiche = false;
+    this.displayValue = "none"
+  }
+
+  submitPerson(n, p) {
+    this.recrueServ.addPerson(new Personne(10, p, n, 33, "Sans emploi", "nidhal.jpg", "candidat"));
+    this.hideModal();
+    this.ngOnInit();
+
   }
 
 }

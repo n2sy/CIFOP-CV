@@ -1,3 +1,29 @@
+<div class="modal fade" [ngClass]="{'show': 'affiche'}" [ngStyle]="{'display' : displayValue}" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+
+      
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="hideModal()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+                Prénom : <br>
+              <input #nom type="text" class="form-control">
+                Nom : <br>
+              <input #prenom type="text" class="form-control">
+        
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="hideModal()">Close</button>
+          <button type="button" class="btn btn-primary" (click)="submitPerson(nom.value, prenom.value)">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <div class="container">
     <div class="row">
         <div class="col-md-4">
@@ -7,13 +33,14 @@
             #candList="cdkDropList"
             [cdkDropListData]="candidatList"
             [cdkDropListConnectedTo]="[recList, refList]"
-            class="example-list"
+            class="candidat example-list"
             (cdkDropListDropped)="drop($event)">
-            <div class="alert alert-primary" *ngFor="let c of candidatList" cdkDrag>
+            <div class="alert alert-primary" *ngFor="let c of candidatList" [cdkDragData]="c" cdkDrag>
                 <img src="../../assets/{{c.avatar | noImage}}"> 
                 {{c.prenom | titlecase}}  {{ c.nom }}
             </div>
           </div>
+          <button class="btn btn-primary" (click)="showModal()">+ Ajouter</button>
         </div>
         <div class="col-md-4">
             <h2>Recrues</h2>
@@ -22,9 +49,9 @@
             #recList="cdkDropList"
             [cdkDropListData]="recrueList"
             [cdkDropListConnectedTo]="[candList, refList]"
-            class="example-list"
+            class="recrue example-list"
             (cdkDropListDropped)="drop($event)">
-            <div class="alert alert-success" *ngFor="let re of recrueList" cdkDrag>
+            <div class="alert alert-success" *ngFor="let re of recrueList" [cdkDragData]="re" cdkDrag>
                 <img src="../../assets/{{re.avatar | noImage}}"> 
                 {{re.prenom | titlecase}}  {{ re.nom }}
             </div>
@@ -37,9 +64,9 @@
             #refList="cdkDropList"
             [cdkDropListData]="refuseList"
             [cdkDropListConnectedTo]="[candList, recList]"
-            class="example-list"
+            class="refuse example-list"
             (cdkDropListDropped)="drop($event)">
-            <div class="alert alert-danger" *ngFor="let c of refuseList" cdkDrag>
+            <div class="alert alert-danger" *ngFor="let c of refuseList" [cdkDragData]="c" cdkDrag>
                 <img src="../../assets/{{c.avatar | noImage}}"> 
                 {{c.prenom | titlecase}}  {{ c.nom }}
             </div>
